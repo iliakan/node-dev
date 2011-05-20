@@ -11,7 +11,7 @@ Unlike most other utilites of this kind, it is based on inotify. So it hooks on 
     Starting: app.js
     > server is listening on http://127.0.0.1:8080</pre>
 
-`node-dev` will rerun app.js whenever one of the watched files is
+`node-dev` will rerun `app.js` whenever one of the watched files is
 changed.
 
 No more switching to the terminal to rerun your code. Just change a file and
@@ -40,18 +40,18 @@ The options are:
 
 #### Running
 
-- `run`: the js file to run, e.g `./app.js`, the only required option.
+- `run`: the js file to run, e.g `./app.js`, it is the only required option.
 
 #### Watch/Ignore
 
-- `watchDir`: the folder to watch, default: `.`
+- `watchDir`: the folder to watch recursively, default: `.`
 - `ignoredPaths` [ paths ]: array of ignored paths, which are not watched, members can be:
     * `string`, matched exactly against path, like `./public`,
-    * `RegExp`, like extension check: `\.gif$`
+    * `RegExp`, e.g an extension check: `/\.gif$/`
     * `function(path)`, which takes the path and returns `true` if it should be ignored
 
 #### Logging
-- `debug`: adds additional output about watches and changes, default: `false`
+- `debug`: enables additional logging output about watches and changes, default: `false`
 - `logger`: custom logger object, must have `error(...)` and `debug(...)` methods, delegates to `console.log` by default. Can use any other logger.
 
 #### Info
@@ -60,12 +60,32 @@ The options are:
 
 You can use these to send error notifications and integrate with your development environment if you wish.
 
-### Limits
+### Troubleshooting
 
 There are limits on the number of watched files in inotify.
-You may need to raise them, or, much better, make sure that you only watch <i>your modules</i>, not all 3rd-party npm stuff.
+So make sure that you only watch <i>your modules</i>, not all 3rd-party npm stuff.
+
+To change the limit:
+
+    $ echo 16384 > /proc/sys/fs/inotify/max_user_watches
+
+Or:
+
+    $ sudo sysctl fs.inotify.max_user_watches=16364
+
+To make the change permanent, edit the file `/etc/sysctl.conf` and add this line to the end of the file:
+
+    fs.inotify.max_user_watches=16384
+
 
 ### TODO
 
 Tell me which features you miss?
 
+Use Github issue tracker for that.
+
+Thank you.
+
+----
+Best Regards,
+Ilya Kantor
