@@ -1,0 +1,21 @@
+{
+  "name": "dev",
+  "description": "Reruns the given file whenever the current working dir subtree has modifications.",
+  "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/iliakan/node-dev.git"
+  },
+  "author": {
+    "name": "Ilya Kantor",
+    "email": "iliakan@gmail.com",
+    "url": "http://javascript.info/"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "node-dev": "./node-dev.sh"
+  },
+  "dependencies": {
+    "inotify": ">= 0.1.6"
+  }
+}
