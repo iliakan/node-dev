@@ -30,7 +30,7 @@ Global installation to have node-dev in path.
 
 ### Advanced usage
 
-The node-dev is a tiny file which basically contains:
+The `node-dev` is a tiny file which basically contains:
 
     var manager = require("dev")(options);
     manager.start();
@@ -60,7 +60,12 @@ The options are:
 
 You can use these to send error notifications and integrate with your development environment if you wish.
 
+### Limits
+
+There are limits on the number of watched files in inotify.
+You may need to raise them, or, much better, make sure that you only watch <i>your modules</i>, not all 3rd-party npm stuff.
+
 ### TODO
 
-Tell me what to do?
+Tell me which features you miss?
 
