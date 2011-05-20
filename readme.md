@@ -1,6 +1,6 @@
 # What does it do?
 
-It autoreloads Node.JS in case of any file changes. Use it to make the development simple.
+It autoreloads Node.JS in case of any file changes. 
 
 
     $ npm install dev -g
@@ -13,13 +13,7 @@ It autoreloads Node.JS in case of any file changes. Use it to make the developme
 `node-dev` will rerun `app.js` whenever one of the watched files is
 changed.
 
-I tried many other modules before it, but finally had to roll this one.
-
-Unlike most other utilites of this kind, it is based on inotify. So *it hooks on new files automatically*. No more switching to the terminal to rerun your code. Just change a file and
-your code will be rerun.
-
-This is especially nice for webservers, as you can skip the terminal and
-alt-tab to the browser to see your updated code happily running.
+The module is based on inotify. So *it hooks on new files automatically*. No more switching to the terminal to rerun your code. 
 
 A number of additional options make the module really flexible and extendible.
 
