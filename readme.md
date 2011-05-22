@@ -8,12 +8,12 @@ It autoreloads Node.JS in case of any file changes.
     $ node-dev app.js
 
     Starting: app.js
-    > server is listening on http://127.0.0.1:8080</pre>
+    > server is listening on http://127.0.0.1:8080
 
 `node-dev` will rerun `app.js` whenever one of the watched files is
 changed.
 
-The module is based on inotify. So, unlike most other modules of this kind, *it starts watching new files automatically*. 
+The module is based on inotify. So, unlike most other modules of this kind, it starts watching new files automatically. In pratice that's pretty handy. 
 
 A number of additional options make the module really flexible and extendible.
 
@@ -58,7 +58,7 @@ You can use these to send error notifications and integrate with your developmen
 
 ### Troubleshooting
 
-There are limits on the number of watched files in inotify. Debian has 8192 by default. That should be enough. If it's not, and you really really need to watch so many files, then you can adjust the limit.
+There are limits on the number of watched files in inotify. For example, Debian has 8192 by default. In most cases, that should be enough. If it's not, and you really really need to watch so many files, then you can adjust the limit.
 
 To change the limit:
 
