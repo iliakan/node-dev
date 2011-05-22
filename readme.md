@@ -21,7 +21,7 @@ A number of additional options make the module really flexible and extendible.
 
 `npm install dev -g`
 
-Global installation to have node-dev in path.
+Global installation is preferred to have `node-dev` utility in path.
 
 ### Advanced usage
 

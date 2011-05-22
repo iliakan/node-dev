@@ -106,13 +106,14 @@ function NodeManager(options) {
 
 	/**
 	 * restarts the server
-	 * doesn't restart more often than once per 1000 ms
+	 * doesn't restart more often than once per 10 ms
+         * suspends restart a little bit in case of massive changes to save CPU
 	 */
 	function restart() {
 
 		if (restartIsScheduled) return
 
-		if (lastRestartTime && lastRestartTime + 1000 > new Date) {
+		if (lastRestartTime && lastRestartTime + 500 > new Date) {
 			// if last restart was recent, we postpone new restart a bit to save resources,
 			// because it often means that many files are changed at once
 			schedule(150)
