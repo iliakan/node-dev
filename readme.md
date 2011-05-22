@@ -23,15 +23,29 @@ A number of additional options make the module really flexible and extendible.
 
 Global installation is preferred to have `node-dev` utility in path.
 
+### Simple usage
+
+If you've installed it globally, then there is a `node-dev` on path, so chdir to your app and run it:
+
+    $ node-dev app.js
+
+    Starting: app.js
+    > server is listening on http://127.0.0.1:8080
+
+Then go to your IDE and edit files. `node-dev` keeps your app up-to-date. The only need to switch to terminal is when there are errors.
+
+But even if there are errors, you can switch back to IDE, correct them and `node-dev` will autorestart the server again for you.
+
+By default, files under `./public`, files with extensions `.db, .dirtydb`, files and directories starting with dot `.` are not watched.
+
 ### Advanced usage
 
-The `node-dev` utility is a tiny file which basically contains:
+The `node-dev` utility is a tiny file which basically contains two lines:
 
     var manager = require("dev")(options);
     manager.start();
 
-
-You can modify it or create your own autorestarter. 
+You can copy and modify it, or create your own, more featured autorestarter on it's base.
 The `options` object may have following properties:
 
 #### Running
