@@ -58,8 +58,7 @@ You can use these to send error notifications and integrate with your developmen
 
 ### Troubleshooting
 
-There are limits on the number of watched files in inotify.
-So make sure that you only watch <i>your modules</i>, not all 3rd-party npm stuff.
+There are limits on the number of watched files in inotify. Debian has 8192 by default. That should be enough. If it's not, and you really really need to watch so many files, then you can adjust the limit.
 
 To change the limit:
 
