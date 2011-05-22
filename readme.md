@@ -25,13 +25,14 @@ Global installation is preferred to have `node-dev` utility in path.
 
 ### Advanced usage
 
-The `node-dev` is a tiny file which basically contains:
+The `node-dev` utility is a tiny file which basically contains:
 
     var manager = require("dev")(options);
     manager.start();
 
 
-The options are:
+You can modify it or create your own autorestarter. 
+The `options` object may have following properties:
 
 #### Running
 
