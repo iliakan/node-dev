@@ -13,7 +13,7 @@ It autoreloads Node.JS in case of any file changes.
 `node-dev` will rerun `app.js` whenever one of the watched files is
 changed.
 
-The module is based on inotify. So *it hooks on new files automatically*. No more switching to the terminal to rerun your code. 
+The module is based on inotify. So, unlike most other modules of this kind, *it starts watching new files automatically*. 
 
 A number of additional options make the module really flexible and extendible.
 
@@ -81,6 +81,3 @@ Use Github issue tracker for that.
 
 Thank you.
 
-----
-Best Regards,
-Ilya Kantor
