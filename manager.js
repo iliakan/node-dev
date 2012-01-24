@@ -1,6 +1,5 @@
 var util = require('util')
 	, fs = require('fs')
-	, sys = require('sys')
 	, spawn = require('child_process').spawn
 	, Inotify = require('inotify').Inotify
 	, inotify = new Inotify()
