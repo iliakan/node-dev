@@ -206,41 +206,48 @@ function NodeManager(options) {
 		logger.debug("Watch: " + file);
 
 		function callback(event) {
-			event.toString = function() {
-				// translate event flags into string
-				// e.g IN_CLOSE | IN_CLOSE_WRITE
-				var txt = []
-				eventsAll.forEach(function(e) {
-					if (Inotify[e] & this.mask) txt.push(e)
-				}.bind(this))
-				return txt.join(' | ')
-			}
+            try {
+                event.toString = function() {
+                    // translate event flags into string
+                    // e.g IN_CLOSE | IN_CLOSE_WRITE
+                    var txt = []
+                    eventsAll.forEach(function(e) {
+                        if (Inotify[e] & this.mask) txt.push(e)
+                    }.bind(this))
+                    return txt.join(' | ')
+                }
 
-			if (event.name) { // name of updated file inside watched folder
-				var path = file + '/' + event.name
-				if (isIgnoredPath(path)) {
-					return
-				}
+                if (event.name) { // name of updated file inside watched folder
+                    var path = file + '/' + event.name
+                    if (isIgnoredPath(path)) {
+                        return
+                    }
 
-				if (event.mask & Inotify.IN_CREATE) { // IN_CREATE always comes here
-					// when a new file is created we wait for it's close_write
-					watchFile(path)
-					if (fs.statSync(path).isDirectory()) {
-						watchFolder(path)
-					}
-					return
-				}
+                    if (event.mask & Inotify.IN_CREATE) { // IN_CREATE always comes here
+                        // when a new file is created we wait for it's close_write
+                        watchFile(path)
+                        if (fs.statSync(path).isDirectory()) {
+                            watchFolder(path)
+                        }
+                        return
+                    }
 
-				logger.debug(path + ' ' + event);
+                    logger.debug(path + ' ' + event);
 
-				restart()
+                    restart()
 
-			} else {
-				logger.debug(file + ' ' + event);
+                } else {
+                    logger.debug(file + ' ' + event);
 
-				restart()
-			}
-
+                    restart()
+                }
+            }
+            catch (exception) {
+                // Ignore exceptions caused by missing files (temp files)
+                if (exception.code !== 'ENOENT') {
+                    throw exception;
+                }
+            }
 		}
 
 
