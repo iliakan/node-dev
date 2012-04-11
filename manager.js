@@ -78,6 +78,14 @@ function NodeManager(options) {
 
 	var child // references the child process, after spawned
 
+    // Kill child process before ending
+    process.on('SIGTERM', function () {
+        if (child) {
+            child.kill();
+        }
+
+        process.exit();
+    });
 
 	/**
 	 * executes the command given by the argument

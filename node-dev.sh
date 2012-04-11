@@ -6,7 +6,7 @@ if (process.argv.length < 3) {
 	process.exit(1);
 }
 
-var manager = require('dev')({
+var manager = require('./index')({
 	ignoredPaths: [
 		'./public', // static folder for an express project
 		/\.dirtydb$/, /\.db$/,  // sqlite db
