@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/iliakan/node-dev.png)](http://travis-ci.org/iliakan/node-dev)
 # What does it do?
 
 It autoreloads Node.JS in case of any file changes. 
