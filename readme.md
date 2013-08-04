@@ -1,3 +1,9 @@
+# Linux only
+
+The module relies on inotify, only available for Linux.
+
+For other OS I'd recommend supervisor or nodemon.
+
 # What does it do?
 
 It autoreloads Node.JS in case of any file changes. 
@@ -72,6 +78,8 @@ You can use these to send error notifications and integrate with your developmen
 
 ### Troubleshooting
 
+This module doesn't compile/run on non-Linux OS. See the head of this file for the details.
+
 There are limits on the number of watched files in inotify. For example, Debian has 8192 by default. In most cases, that should be enough. If it's not, and you really really need to watch so many files, then you can adjust the limit.
 
 To change the limit:
@@ -87,11 +95,4 @@ To make the change permanent, edit the file `/etc/sysctl.conf` and add this line
     fs.inotify.max_user_watches=16384
 
 
-### TODO
-
-Tell me which features you miss?
-
-Use Github issue tracker for that.
-
-Thank you.
 
