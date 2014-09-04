@@ -1,7 +1,8 @@
 
 # Deprecated
 
-As of now, this module is effectively deprecated. It was useful long ago, but now I recommend https://github.com/remy/nodemon.
+As of now, this module is effectively deprecated. 
+I recommend https://github.com/remy/nodemon.
 
 # Linux only
 
