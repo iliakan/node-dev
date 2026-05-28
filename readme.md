@@ -1,9 +1,6 @@
+# Notice: this module will be rewritten and change functionality
 
-# Deprecated
-
-As of now, this module is deprecated. It worked great for me, but it's Linux only, and now I'm on Mac.
-
-I recommend https://github.com/remy/nodemon.
+A rewrite is planned. Until then, the existing Linux/inotify implementation remains as documented below.
 
 # Linux only
 
@@ -13,7 +10,7 @@ For other OS I'd recommend supervisor or nodemon.
 
 # What does it do?
 
-It autoreloads Node.JS in case of any file changes. 
+It autoreloads Node.JS in case of any file changes.
 
 
     $ npm install dev -g
@@ -26,7 +23,7 @@ It autoreloads Node.JS in case of any file changes.
 `node-dev` will rerun `app.js` whenever one of the watched files is
 changed.
 
-The module is based on inotify. So, unlike most other modules of this kind, *it starts watching new files automatically*. 
+The module is based on inotify. So, unlike most other modules of this kind, *it starts watching new files automatically*.
 
 A number of additional options make the module really flexible and extendible.
 

@@ -1,7 +1,7 @@
 {
   "name": "dev",
-  "description": "Reruns the given file whenever the current working dir subtree has modifications.",
-  "version": "0.1.3",
+  "description": "Reruns the given file whenever the current working dir subtree has modifications. Note: this module will be rewritten and change functionality.",
+  "version": "0.1.4",
   "repository": {
     "type": "git",
     "url": "git://github.com/iliakan/node-dev.git"
@@ -13,7 +13,7 @@
   },
   "preferGlobal": true,
   "bin": {
-    "node-dev": "./node-dev.sh"
+    "node-dev": "node-dev.sh"
   },
   "dependencies": {
     "inotify": ">= 0.1.6"
